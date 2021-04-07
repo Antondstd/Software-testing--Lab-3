@@ -23,27 +23,16 @@ import java.time.Duration
 internal class WebSpeedTest {
 
 
-//    fun setUp(browser: String): RemoteWebDriver {
-//        val driver: WebDriver
-//        when (browser) {
-//            "chrome" -> driver = RemoteWebDriver(URL("http://192.168.56.1:4444/"), ChromeOptions())
-//            else -> driver = RemoteWebDriver(URL("http://192.168.56.1:4444/"), FirefoxOptions())
-//        }
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10))
-//        return driver
-//    }
+   fun setUp(browser: String): RemoteWebDriver {
+       val driver: WebDriver
+       when (browser) {
+           "chrome" -> driver = RemoteWebDriver(URL("http://192.168.56.1:4444/"), ChromeOptions())
+           else -> driver = RemoteWebDriver(URL("http://192.168.56.1:4444/"), FirefoxOptions())
+       }
+       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10))
+       return driver
+   }
 
-    @BeforeAll
-    fun systemSetUp() {
-        System.setProperty(
-            "webdriver.chrome.driver",
-            "C:\\Users\\ad3st\\AppData\\Local\\Google\\Chrome\\chromedriver.exe"
-        )
-        System.setProperty(
-            "webdriver.gecko.driver",
-            "D:\\University\\6_semester\\TPO\\Lab3\\Drivers\\firefox\\geckodriver.exe"
-        )
-    }
 
     fun setUp(browser: String): WebDriver {
         val driver: WebDriver
